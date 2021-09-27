@@ -1,7 +1,8 @@
-package com.example.articlereader
+package com.example.articlereader.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.articlereader.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
