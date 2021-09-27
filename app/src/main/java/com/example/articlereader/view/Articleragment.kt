@@ -27,10 +27,8 @@ class Articleragment(val url : String) : Fragment() {
         // WebViewClient allows you to handle
         // onPageFinished and override Url loading.
         binding.article.webViewClient= WebViewClient()
-
         // this will load the url of the website
-        binding.article.loadUrl("https://www.geeksforgeeks.org/")
-
+        binding.article.loadUrl(url)
         // this will enable the javascript settings
         binding.article.settings.javaScriptEnabled = true
 
