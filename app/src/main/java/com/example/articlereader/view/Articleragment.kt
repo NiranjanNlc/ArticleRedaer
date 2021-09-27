@@ -31,7 +31,7 @@ class Articleragment(val url : String) : Fragment() {
         binding.article.loadUrl(url)
         // this will enable the javascript settings
         binding.article.settings.javaScriptEnabled = true
-
+         print(" hello niranjn ")
         // if you want to enable zoom feature
         binding.article.settings.setSupportZoom(true)
     }
