@@ -1,4 +1,6 @@
 package com.example.articlereader.view
 
-class ArticleAdapter {
+class ArticleAdapter
+{
+
 }
