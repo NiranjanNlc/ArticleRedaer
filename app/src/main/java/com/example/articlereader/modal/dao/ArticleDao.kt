@@ -12,8 +12,6 @@ import com.example.articlereader.modal.data.Article
 @Dao
 interface ArticleDao
 {
-    
-    interface ReciepeDao {
         @Insert(onConflict = REPLACE)
         fun save(reciepe:Article)
 
@@ -23,5 +21,4 @@ interface ArticleDao
         @Query("SELECT * FROM  article")
         fun getAlphabetizedWords(): LiveData<List<Article>>
 
-    }
 }
