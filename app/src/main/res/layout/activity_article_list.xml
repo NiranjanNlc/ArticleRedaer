@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="article"
+            type="com.example.articlereader.view.ArticleList" />
+    </data>
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,3 +20,5 @@
         android:scrollbars="vertical" />
 
 </androidx.core.widget.NestedScrollView>
+
+</layout>
