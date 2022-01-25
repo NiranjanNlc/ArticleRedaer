@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.articlereader.modal.dao.ArticleDao
 import com.example.articlereader.modal.data.Article
+import com.example.articlereader.utility.ArticleList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -22,8 +23,11 @@ abstract class ArticleDataBase : RoomDatabase()
                 super.onCreate(db)
                 INSTANCE?.let { database ->
                     scope.launch {
-                        //do something here
-
+                        //do somrething
+                        var dao =database.reciepedDao()
+                        ArticleList.getArtcile().forEach {
+                            dao.save(it)
+                        }
                     }
                 }
             }
@@ -42,9 +46,10 @@ abstract class ArticleDataBase : RoomDatabase()
                     val instance = Room.databaseBuilder(
                         context.applicationContext,
                        ArticleDataBase::class.java,
-                        "reciepe_database"
+                        "article_database"
                     ).addCallback(ReciepeDatabaseCallback(scope))
                         .build()
+
                     INSTANCE = instance
                     // return instance
                     instance

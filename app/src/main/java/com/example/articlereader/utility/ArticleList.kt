@@ -2,9 +2,9 @@ package com.example.articlereader.utility
 
 import com.example.articlereader.modal.data.Article
 
-object GetArticleList
+object ArticleList
 {
-    fun addArtcile():List<Article>
+    fun getArtcile():List<Article>
     {
         return  listOf(
             Article(title="https://review.firstround.com/draw-the-owl-and-other-company-values-you-didnt-know-you-should-have",
