@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="article"
+            type="com.example.articlereader.modal.data.Article" />
+    </data>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -32,6 +38,7 @@
                 android:layout_below="@id/thumbnail"
                 android:paddingLeft="@dimen/album_title_padding"
                 android:paddingRight="@dimen/album_title_padding"
+                android:text="@{article.title}"
                 android:paddingTop="@dimen/album_title_padding"
                 android:textColor="@color/album_title"
                 android:textSize="@dimen/album_title" />
@@ -55,9 +62,8 @@
                 android:layout_marginTop="@dimen/ic_album_overflow_margin_top"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_dots" />
-
         </RelativeLayout>
-
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>
+</layout>

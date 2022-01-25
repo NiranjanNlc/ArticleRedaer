@@ -40,7 +40,7 @@ class ArticleAdapter constructor(val context : Context, val itemClickListener: I
         }
         fun bind(articleItem: Article)
         {
-           // items.items = articleItem
+           items.article = articleItem
 
         }
 
@@ -59,7 +59,7 @@ class ArticleAdapter constructor(val context : Context, val itemClickListener: I
      println( " see thid " + articleItem.title)
      holder.bind(articleItem)
      Glide.with(context).load(articleItem.titleImageUrl).into(holder.items.thumbnail)
-  //   holder.executePendingBindings()
+    // holder.executePendingBindings()
  }
 
 }
