@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.articlereader.R
 import com.example.articlereader.databinding.ActivityArticleListBinding
@@ -63,7 +64,7 @@ class ArticleList : AppCompatActivity(),ArticleAdapter.ItemClickListener
     private fun initRecyclerView()
     {
         print(" recycler view initiated")
-        binding.recyclerView.layoutManager = GridLayoutManager(this,2) as RecyclerView.LayoutManager?
+        binding.recyclerView.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
         // binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.adapter=   adapter
         binding.recyclerView.setItemViewCacheSize(4)
