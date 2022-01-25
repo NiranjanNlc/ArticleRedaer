@@ -1,2 +1,2 @@
 # ArticleRedaer
-Utilized the web view to reead important article on leaderships
+Utilized the web view to read important article on leaderships
