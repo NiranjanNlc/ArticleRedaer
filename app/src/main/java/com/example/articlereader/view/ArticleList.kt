@@ -2,6 +2,7 @@ package com.example.articlereader.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,15 +23,22 @@ class ArticleList : AppCompatActivity(),ArticleAdapter.ItemClickListener
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_article_list)
-    }
-    private fun initaliseRecipeList() {
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_article_list)
+      //  setContentView(R.layout.activity_article_list)
+       binding = DataBindingUtil.setContentView(this, R.layout.activity_article_list)
+        Log.i("activityList","binding " )
         sampleViewModal = initialiseViewModal()
         adapter = ArticleAdapter(this,this)
+        Log.i("activityList","adapter view data " )
         bindData()
+        Log.i("activityList","binddata" )
         observeChange()
+        Log.i("activityList","change objerved " )
         initRecyclerView()
+        Log.i("activityList","recycler view " )
+        initaliseRecipeList()
+    }
+    private fun initaliseRecipeList() {
+
     }
 
     private fun observeChange()
@@ -52,7 +60,6 @@ class ArticleList : AppCompatActivity(),ArticleAdapter.ItemClickListener
     {
         binding.lifecycleOwner=this
     }
-
     private fun initRecyclerView()
     {
         print(" recycler view initiated")
@@ -63,11 +70,8 @@ class ArticleList : AppCompatActivity(),ArticleAdapter.ItemClickListener
         adapter.submitList(sampleViewModal.articlList.value)
         // adapter.
     }
-
     override fun onItemClick(position: String)
     {
         
     }
-
-
 }
