@@ -6,9 +6,9 @@ import androidx.room.PrimaryKey
 @Entity
 data class Article(
     @PrimaryKey(autoGenerate = true)
-    val id :Int?=null,
-    val title :String?=null,
-    val url:String?=null ,
-    val status :String?=null ,
-    val titleImageUrl :String?=null) {
+    var id :Int?=null,
+    var title :String?=null,
+    var url:String?=null ,
+    var status :String?=null ,
+    var titleImageUrl :String?=null) {
 }

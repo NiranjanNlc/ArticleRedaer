@@ -1,6 +1,7 @@
 package com.example.articlereader.modal.database
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -24,6 +25,7 @@ abstract class ArticleDataBase : RoomDatabase()
                 INSTANCE?.let { database ->
                     scope.launch {
                         //do somrething
+                        Log.i("article db", "inserting article databses ")
                         var dao =database.reciepedDao()
                         ArticleList.getArtcile().forEach {
                             dao.save(it)
@@ -49,7 +51,6 @@ abstract class ArticleDataBase : RoomDatabase()
                         "article_database"
                     ).addCallback(ReciepeDatabaseCallback(scope))
                         .build()
-
                     INSTANCE = instance
                     // return instance
                     instance
