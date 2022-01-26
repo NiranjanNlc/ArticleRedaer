@@ -34,8 +34,8 @@ class ArticleAdapter constructor(val context : Context, val itemClickListener: I
     inner  class ArticleListViewHolder(var items: ArticleItemBinding): RecyclerView.ViewHolder(items.root)
     {
         init {
-            items.root.setOnClickListener{
-               it1 -> itemClickListener.onItemClick(items.article)
+            items.cardView.setOnClickListener{
+            itemClickListener.onItemClick(items.article!!)
             }
 
         }

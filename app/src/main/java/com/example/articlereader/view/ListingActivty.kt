@@ -79,5 +79,6 @@ class ListingActivty : AppCompatActivity(),ArticleAdapter.ItemClickListener
         println(" Nlc user here $article.toString()")
         i.putExtra("url",article.url)
         startActivity(i,null)
+      //  finish()
     }
 }
