@@ -10,7 +10,7 @@ import com.example.articlereader.R
 import com.example.articlereader.databinding.FragmentArticleragmentBinding
 
 
-class Articleragment(val url : String) : Fragment() {
+class ArticleFragment(val url : String) : Fragment() {
 
     private lateinit var binding: FragmentArticleragmentBinding
     override fun onCreateView(

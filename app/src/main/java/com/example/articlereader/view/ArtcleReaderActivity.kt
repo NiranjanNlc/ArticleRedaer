@@ -3,9 +3,7 @@ package com.example.articlereader.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebViewClient
-import com.example.articlereader.R
 import com.example.articlereader.databinding.FragmentArticleragmentBinding
-import com.example.binding.articlereader.view.Articleragment
 
 class ArtcleReaderActivity : AppCompatActivity() {
 
