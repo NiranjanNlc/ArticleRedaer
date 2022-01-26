@@ -7,7 +7,7 @@ import com.example.articlereader.R
 import com.example.articlereader.databinding.FragmentArticleragmentBinding
 import com.example.binding.articlereader.view.Articleragment
 
-class MainActivity : AppCompatActivity() {
+class ArtcleReaderActivity : AppCompatActivity() {
 
     private lateinit var binding: FragmentArticleragmentBinding
     override fun onCreate(savedInstanceState: Bundle?) {

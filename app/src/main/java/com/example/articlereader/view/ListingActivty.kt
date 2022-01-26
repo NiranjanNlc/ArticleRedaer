@@ -16,7 +16,7 @@ import com.example.articlereader.viewModal.ViewModalFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
-class ArticleList : AppCompatActivity(),ArticleAdapter.ItemClickListener
+class ListingActivty : AppCompatActivity(),ArticleAdapter.ItemClickListener
 {
     private lateinit var binding:ActivityArticleListBinding
     private lateinit var sampleViewModal: ArticleViewModal
