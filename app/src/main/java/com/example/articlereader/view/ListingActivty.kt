@@ -1,5 +1,6 @@
 package com.example.articlereader.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.articlereader.R
 import com.example.articlereader.databinding.ActivityArticleListBinding
+import com.example.articlereader.modal.data.Article
 import com.example.articlereader.modal.database.ArticleDataBase
 import com.example.articlereader.modal.repo.ArticleRepo
 import com.example.articlereader.viewModal.ArticleViewModal
@@ -71,8 +73,11 @@ class ListingActivty : AppCompatActivity(),ArticleAdapter.ItemClickListener
         adapter.submitList(sampleViewModal.articlList.value)
         // adapter.
     }
-    override fun onItemClick(position: String)
+    override fun onItemClick(article: Article)
     {
-        
+        var i = Intent(this,  ArticleReaderActivity ::class.java)
+        println(" Nlc user here $article.toString()")
+        i.putExtra("url",article.url)
+        startActivity(i,null)
     }
 }

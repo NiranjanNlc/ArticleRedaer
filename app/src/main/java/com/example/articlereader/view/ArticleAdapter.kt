@@ -15,7 +15,7 @@ class ArticleAdapter constructor(val context : Context, val itemClickListener: I
 
 {
     interface ItemClickListener{
-        fun onItemClick(position: String)
+        fun onItemClick(artcle: Article)
     }
     companion object {
         val ARTICLE_COMPARATOR = object : DiffUtil.ItemCallback<Article>() {
@@ -35,13 +35,13 @@ class ArticleAdapter constructor(val context : Context, val itemClickListener: I
     {
         init {
             items.root.setOnClickListener{
-               // items.cardView?.idMeal?.let { it1 -> itemClickListener.onItemClick(it1) }
+               it1 -> itemClickListener.onItemClick(items.article)
             }
+
         }
         fun bind(articleItem: Article)
         {
            items.article = articleItem
-
         }
 
     }

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.webkit.WebViewClient
 import com.example.articlereader.databinding.FragmentArticleragmentBinding
 
-class ArtcleReaderActivity : AppCompatActivity() {
+class ArticleReaderActivity : AppCompatActivity() {
 
     private lateinit var binding: FragmentArticleragmentBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +13,8 @@ class ArtcleReaderActivity : AppCompatActivity() {
         binding = FragmentArticleragmentBinding.inflate(layoutInflater)
         setContentView(binding.root)
         print("jhhhhhhh")
-        viewFragment("https://niranjannlc.blogspot.com/")
+      //  viewFragment("https://niranjannlc.blogspot.com/")
+        viewFragment(intent.extras?.get("url") as String)
     }
 
     private fun viewFragment( url :String) {
