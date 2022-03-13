@@ -10,5 +10,4 @@ data class Article(
     var title :String?=null,
     var url:String?=null ,
     var status :String?=null ,
-    var titleImageUrl :String?=null) {
-}
+    var titleImageUrl :String?=null)

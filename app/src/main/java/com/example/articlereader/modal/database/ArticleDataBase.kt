@@ -26,8 +26,8 @@ abstract class ArticleDataBase : RoomDatabase()
                     scope.launch {
                         //do somrething
                         Log.i("article db", "inserting article databses ")
-                        var dao =database.reciepedDao()
-                        ArticleList.getArtcile().forEach {
+                        val dao =database.reciepedDao()
+                        ArticleList.getArticles().forEach {
                             dao.save(it)
                         }
                     }

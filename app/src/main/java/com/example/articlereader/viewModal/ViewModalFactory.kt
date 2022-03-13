@@ -6,9 +6,9 @@ import com.example.articlereader.modal.repo.ArticleRepo
 
 class ViewModalFactory(private val repository: ArticleRepo) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        println(" Inn view odal factory")
+        println(" Inn view modal factory")
         if (modelClass.isAssignableFrom(ArticleViewModal::class.java)) {
-            println("Assighnabke class")
+            println("Assighnable class")
             @Suppress("UNCHECKED_CAST")
             return ArticleViewModal(repository) as T
         }

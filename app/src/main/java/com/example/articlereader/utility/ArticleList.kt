@@ -4,7 +4,7 @@ import com.example.articlereader.modal.data.Article
 
 object ArticleList
 {
-    fun getArtcile():List<Article>
+    fun getArticles():List<Article>
     {
         return  listOf(
             Article( title ="Draw the own",

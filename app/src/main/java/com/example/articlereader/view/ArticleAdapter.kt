@@ -15,13 +15,13 @@ class ArticleAdapter constructor(val context : Context, val itemClickListener: I
 
 {
     interface ItemClickListener{
-        fun onItemClick(artcle: Article)
+        fun onItemClick(article: Article)
     }
     companion object {
         val ARTICLE_COMPARATOR = object : DiffUtil.ItemCallback<Article>() {
             override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
                 println(" item same ")
-                return oldItem == newItem;
+                return oldItem == newItem
             }
 
             override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
