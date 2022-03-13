@@ -13,13 +13,12 @@ class ArticleReaderActivity : AppCompatActivity() {
         binding = FragmentArticleragmentBinding.inflate(layoutInflater)
         setContentView(binding.root)
         print("jhhhhhhh")
-      //  viewFragment("https://niranjannlc.blogspot.com/")
         viewFragment(intent.extras?.get("url") as String)
     }
 
     private fun viewFragment( url :String) {
         println("miyyyyyyyyyyyyyyyyyy")
-        binding.article.webViewClient= WebViewClient()
+        binding.article.webViewClient = WebViewClient()
         // this will load the url of the website
         binding.article.loadUrl(url)
         // this will enable the javascript settings
@@ -27,19 +26,5 @@ class ArticleReaderActivity : AppCompatActivity() {
         println(" hello niranjn ")
         // if you want to enable zoom feature
         binding.article.settings.setSupportZoom(true)
-//        val transaction = getSupportFragmentManager().beginTransaction();
-//        transaction.replace(R.id.mainframe, Articleragment(url));
-//        transaction.addToBackStack(null);
-//        transaction.commit();
     }
-//    // if you press Back button this code will work
-//    override fun onBackPressed() {
-//        // if your webview can go back it will go back
-//        if (webView.canGoBack())
-//            webView.goBack()
-//        // if your webview cannot go back
-//        // it will exit the application
-//        else
-//            super.onBackPressed()
-//    }
 }
