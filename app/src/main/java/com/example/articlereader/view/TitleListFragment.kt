@@ -1,11 +1,12 @@
 package com.example.articlereader.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import com.example.articlereader.R
 import com.example.articlereader.databinding.FragmentListingBinding
 import com.example.articlereader.modal.database.ArticleDataBase
@@ -15,16 +16,20 @@ import com.example.articlereader.viewModal.ViewModalFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
+
 class TitleListFragment : Fragment() {
 
     private lateinit var binding: FragmentListingBinding
     private lateinit var viewModal: SearchViewModal
+    private lateinit var adapter: ArrayAdapter<String>
+    private lateinit var list :List<String>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_listing, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_listing, container, false)
         viewModal= initialiseViewModal() as SearchViewModal
+
         viewModal.searchString.observe(viewLifecycleOwner,
             {
 
