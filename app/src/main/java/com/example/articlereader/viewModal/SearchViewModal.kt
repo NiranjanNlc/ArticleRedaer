@@ -9,7 +9,7 @@ class SearchViewModal ( repository: ArticleRepo) : ViewModel() {
 
     private lateinit var job: Job
     val articlList = repository.allArticles
-    private val searchString = MutableLiveData<String>()
+    val searchString = MutableLiveData<String>()
 
     override fun onCleared() {
         super.onCleared()
