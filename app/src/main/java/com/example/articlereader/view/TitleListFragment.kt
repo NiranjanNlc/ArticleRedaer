@@ -15,7 +15,7 @@ import com.example.articlereader.viewModal.ViewModalFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
-class ListingFragment : Fragment() {
+class TitleListFragment : Fragment() {
 
     private lateinit var binding: FragmentListingBinding
     private lateinit var viewModal: SearchViewModal
