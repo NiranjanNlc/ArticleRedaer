@@ -26,7 +26,7 @@ class SearchActivity : AppCompatActivity() {
         Log.i("activityList","binding " )
         sampleViewModal = initialiseViewModal()
         binding.inputSearch.addTextChangedListener{
-            sampleViewModal.updateSearchString(it.toString())
+            sampleViewModal.search(it.toString())
         }
     }
 

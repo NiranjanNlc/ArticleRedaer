@@ -23,7 +23,6 @@ class TitleListFragment : Fragment() {
     private lateinit var binding: FragmentListingBinding
     private lateinit var viewModal: SearchViewModal
     private var article: ArrayList<Article> = arrayListOf()
-    private var matchedarticle: ArrayList<Article> = arrayListOf()
     private var personAdapter: TitleAdapter  = TitleAdapter(article)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +31,9 @@ class TitleListFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_listing, container, false)
         viewModal= initialiseViewModal() as SearchViewModal
         initRecyclerView()
+        viewModal.matchedarticle.observe(viewLifecycleOwner,{
+            binding.recyclerView.adapter = TitleAdapter(it as ArrayList<Article>)
+        })
         return binding.root
     }
 

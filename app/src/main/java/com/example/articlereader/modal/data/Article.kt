@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class Article(
     @PrimaryKey(autoGenerate = true)
     var id :Int?=null,
-    var title :String?=null,
+    var title :String,
     var url:String?=null ,
     var status :String?=null ,
     var titleImageUrl :String?=null)
