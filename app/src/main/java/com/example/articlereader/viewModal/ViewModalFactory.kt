@@ -12,6 +12,11 @@ class ViewModalFactory(private val repository: ArticleRepo) : ViewModelProvider.
             @Suppress("UNCHECKED_CAST")
             return ArticleViewModal(repository) as T
         }
+        else if (modelClass.isAssignableFrom(SearchViewModal::class.java)) {
+            println("Assighnable class")
+            @Suppress("UNCHECKED_CAST")
+            return SearchViewModal(repository) as T
+        }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
