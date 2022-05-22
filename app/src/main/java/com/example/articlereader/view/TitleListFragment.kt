@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.articlereader.R
 import com.example.articlereader.databinding.FragmentListingBinding
+import com.example.articlereader.modal.data.Article
 import com.example.articlereader.modal.database.ArticleDataBase
 import com.example.articlereader.modal.repo.ArticleRepo
 import com.example.articlereader.viewModal.SearchViewModal
@@ -21,20 +22,22 @@ class TitleListFragment : Fragment() {
 
     private lateinit var binding: FragmentListingBinding
     private lateinit var viewModal: SearchViewModal
-    private lateinit var adapter: ArrayAdapter<String>
-    private lateinit var list :List<String>
+    private var article: ArrayList<Article> = arrayListOf()
+    private var matchedarticle: ArrayList<Article> = arrayListOf()
+    private var personAdapter: TitleAdapter  = TitleAdapter(article)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_listing, container, false)
         viewModal= initialiseViewModal() as SearchViewModal
-
-        viewModal.searchString.observe(viewLifecycleOwner,
-            {
-
-            })
+        initRecyclerView()
         return binding.root
+    }
+
+    private fun initRecyclerView() {
+        article = viewModal.articlList.value as ArrayList<Article>
+        binding.recyclerView.adapter = personAdapter
     }
 
     private fun initialiseViewModal(): SearchViewModal? {
