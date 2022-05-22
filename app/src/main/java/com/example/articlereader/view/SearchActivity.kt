@@ -3,6 +3,7 @@ package com.example.articlereader.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import com.example.articlereader.R
 import com.example.articlereader.databinding.ActivityArticleListBinding
@@ -24,6 +25,9 @@ class SearchActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_search)
         Log.i("activityList","binding " )
         sampleViewModal = initialiseViewModal()
+        binding.inputSearch.addTextChangedListener{
+            sampleViewModal.updateSearchString(it.toString())
+        }
     }
 
     private fun initialiseViewModal(): SearchViewModal {
