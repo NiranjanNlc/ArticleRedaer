@@ -13,17 +13,29 @@
         android:layout_height="match_parent"
         tools:context=".view.SearchActivity">
         <!-- Editext for Search -->
+
         <EditText
             android:id="@+id/inputSearch"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="64dp"
+            android:layout_margin="16dp"
             android:hint="Search articles.."
-            android:padding="8dp"
-            android:layout_margin="8dp"
             android:inputType="textVisiblePassword"
+            android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/articleContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputSearch"
+            >
+
+        </FrameLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
