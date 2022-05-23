@@ -12,13 +12,7 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent">
-        <!-- Editext for Search -->
-        <EditText android:id="@+id/inputSearch"
-            android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:hint="Search products.."
-            android:inputType="textVisiblePassword"
-            />
+
 <androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
