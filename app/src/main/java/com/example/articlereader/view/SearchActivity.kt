@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.articlereader.R
 import com.example.articlereader.databinding.ActivityArticleListBinding
 import com.example.articlereader.databinding.ActivitySearchBinding
@@ -28,6 +31,9 @@ class SearchActivity : AppCompatActivity() {
         binding.inputSearch.addTextChangedListener{
             sampleViewModal.search(it.toString())
         }
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.articleContainer) as NavHostFragment
+        val navController = navHostFragment.navController
+//        setupActionBarWithNavController(navController)
     }
 
     private fun initialiseViewModal(): SearchViewModal {

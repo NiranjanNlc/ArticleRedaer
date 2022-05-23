@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_search.xml" value="0.1" />
         <entry key="app/src/main/res/layout/article_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_article_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_articleragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_listing.xml" value="0.1" />
         <entry key="app/src/main/res/layout/search_item.xml" value="0.1" />

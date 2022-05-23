@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/search_nav"
-    app:startDestination="@id/titleListFragment">
+    app:startDestination="@id/articleListFragment">
     <fragment
-        android:id="@+id/titleListFragment"
-        android:name="com.example.articlereader.view.TitleListFragment"
-        android:label="TitleListFragment" />
+        android:id="@+id/articleListFragment"
+        android:name="com.example.articlereader.view.ArticleListFragment"
+        android:label="ArticleListFragment" />
 </navigation>
