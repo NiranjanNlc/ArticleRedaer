@@ -1,5 +1,6 @@
 package com.example.articlereader.viewModal
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.articlereader.modal.data.Article
@@ -9,9 +10,13 @@ import kotlinx.coroutines.Job
 class SearchViewModal ( repository: ArticleRepo) : ViewModel() {
 
     private lateinit var job: Job
-    val articlList = repository.allArticles
+    var articlList : LiveData<List<Article>>
     val searchString = MutableLiveData<String>()
     var matchedarticle= MutableLiveData<List<Article>>()
+
+    init {
+        articlList = repository.allArticles
+    }
     
     override fun onCleared() {
         super.onCleared()
