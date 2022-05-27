@@ -26,16 +26,12 @@ class SearchViewModal ( repository: ArticleRepo) : ViewModel() {
         super.onCleared()
         if (::job.isInitialized) job.cancel()
     }
-    fun updateSearchString( text: String)
-    {
-        searchString.postValue(text)
-    }
-
     fun search(text: String?) {
         text?.let {
             matchedarticle.value = articlList.filter {
                 it.title.contains(text,true)
             }
             }
+        println(matchedarticle.value)
         }
 }

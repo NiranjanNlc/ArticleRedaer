@@ -2,7 +2,9 @@ package com.example.articlereader.view
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.contains
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
@@ -27,26 +29,23 @@ class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_search)
-        Log.i("activityList","binding " )
+        Log.i("activityList", "binding ")
         sampleViewModal = initialiseViewModal()
-        binding.inputSearch.addTextChangedListener{
+        binding.inputSearch.addTextChangedListener {
             sampleViewModal.search(it.toString())
         }
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.articleContainer) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.articleContainer) as NavHostFragment
         navController = navHostFragment.navController
-//        setupActionBarWithNavController(navController)
         binding.inputSearch.doOnTextChanged { text, start, before, count ->
-            checkFragment()
-            updateVieeModalValue()
-             navController.navigate(R.id.action_articleListFragment_to_titleListFragment)
+            navController.currentDestination?.let { println(it.label) }
+            if (navController.currentDestination?.label?.equals("ArticleListFragment") == true){
+                    println(" Hello .... ")
+                    navController.navigate(R.id.action_articleListFragment_to_titleListFragment)
+            } else {
+                println(" sello ")
+                sampleViewModal.search(text.toString())            }
         }
-    }
-
-    private fun checkFragment() {
-
-    }
-
-    private fun updateVieeModalValue() {
     }
 
     private fun initialiseViewModal(): SearchViewModal {
