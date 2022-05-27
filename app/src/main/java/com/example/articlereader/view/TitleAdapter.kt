@@ -7,7 +7,7 @@ import com.example.articlereader.databinding.SearchItemBinding
 import com.example.articlereader.modal.data.Article
 
 class TitleAdapter(
-    var list: ArrayList<Article>
+    var list: List<Article>
 ) : RecyclerView.Adapter<TitleAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
