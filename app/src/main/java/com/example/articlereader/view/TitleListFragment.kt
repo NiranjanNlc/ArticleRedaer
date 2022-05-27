@@ -1,5 +1,6 @@
 package com.example.articlereader.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -20,7 +21,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
 
-class TitleListFragment : Fragment() {
+class TitleListFragment : Fragment() , TitleAdapter.ItemClickListener{
 
     private lateinit var binding: FragmentListingBinding
     private lateinit var viewModal: SearchViewModal
@@ -31,24 +32,29 @@ class TitleListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_listing, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModal= initialiseViewModal() as SearchViewModal
         setAdapter()
         bindData()
         observechange()
         initRecyclerView()
-        return binding.root
     }
 
     private fun observechange() {
         viewModal.matchedarticle.observe(viewLifecycleOwner, {
-            binding.recyclerView.adapter = TitleAdapter(it)
+            Log.d(" observed ", " why this why ")
+            personAdapter.submitList(it)
         })
     }
 
     private fun setAdapter() {
         article = viewModal.matchedarticle.value!!
         Log.d(" set adapter ",article.toString())
-        personAdapter = TitleAdapter(article)
+        personAdapter = context?.let { TitleAdapter(it, this) }!!
     }
 
     private fun initialiseViewModal(): SearchViewModal? {
@@ -70,6 +76,14 @@ class TitleListFragment : Fragment() {
         binding.recyclerView.adapter = personAdapter
         Log.d("recycler view initiated", " hello ")
         binding.recyclerView.setItemViewCacheSize(4)
+        personAdapter.submitList(viewModal.matchedarticle.value)
+    }
+
+    override fun onItemClick(article: Article) {
+        val i = Intent(context,  ArticleReaderActivity ::class.java)
+        println(" Nlc user here $article.toString()")
+        i.putExtra("url",article.url)
+        startActivity(i,null)
     }
 
 }
