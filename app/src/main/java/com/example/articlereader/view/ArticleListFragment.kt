@@ -3,20 +3,18 @@ package com.example.articlereader.view
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.articlereader.R
 import com.example.articlereader.databinding.FragmentArticleListBinding
-import com.example.articlereader.databinding.FragmentListingBinding
 import com.example.articlereader.modal.data.Article
 import com.example.articlereader.modal.database.ArticleDataBase
 import com.example.articlereader.modal.repo.ArticleRepo
 import com.example.articlereader.viewModal.ArticleViewModal
-import com.example.articlereader.viewModal.SearchViewModal
 import com.example.articlereader.viewModal.ViewModalFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -28,7 +26,7 @@ class ArticleListFragment : Fragment(), ArticleAdapter.ItemClickListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding =DataBindingUtil.inflate(inflater, R.layout.fragment_article_list, container, false)
         sampleViewModal = initialiseViewModal()
         adapter = context?.let { ArticleAdapter(it, this) }!!

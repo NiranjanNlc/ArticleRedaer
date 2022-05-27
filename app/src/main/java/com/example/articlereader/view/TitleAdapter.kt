@@ -24,7 +24,7 @@ class TitleAdapter constructor(val context : Context, val itemClickListener: Ite
 
             override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
                 print(" Content same ")
-                return oldItem.title!!.equals(newItem.title)
+                return oldItem.title.equals(newItem.title)
             }
         }
 

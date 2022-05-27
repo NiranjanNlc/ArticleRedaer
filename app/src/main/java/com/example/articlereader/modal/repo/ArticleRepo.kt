@@ -14,6 +14,6 @@ class ArticleRepo (private val articleDao: ArticleDao) {
     suspend fun insert(article: Article) {
         println(" inserted the article  ")
         articleDao.save(article)
-        println(allArticles.getValue())
+        println(allArticles.value)
     }
 }
