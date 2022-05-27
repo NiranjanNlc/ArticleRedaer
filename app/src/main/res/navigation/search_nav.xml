@@ -8,6 +8,7 @@
         android:id="@+id/articleListFragment"
         android:name="com.example.articlereader.view.ArticleListFragment"
         android:label="ArticleListFragment" >
+
         <action
             android:id="@+id/action_articleListFragment_to_titleListFragment"
             app:destination="@id/titleListFragment" />

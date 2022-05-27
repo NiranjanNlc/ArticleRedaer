@@ -18,14 +18,17 @@
             android:id="@+id/inputSearch"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
             android:hint="Search articles.."
-            android:inputType="textVisiblePassword"
-            android:padding="16dp"
+            android:background="@drawable/rounded_search"
+            android:padding="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/articleContainer"

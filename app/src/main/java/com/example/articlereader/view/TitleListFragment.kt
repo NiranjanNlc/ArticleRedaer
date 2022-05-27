@@ -15,6 +15,7 @@ import com.example.articlereader.databinding.FragmentListingBinding
 import com.example.articlereader.modal.data.Article
 import com.example.articlereader.modal.database.ArticleDataBase
 import com.example.articlereader.modal.repo.ArticleRepo
+import com.example.articlereader.utility.ArticleList
 import com.example.articlereader.viewModal.SearchViewModal
 import com.example.articlereader.viewModal.ViewModalFactory
 import kotlinx.coroutines.CoroutineScope
@@ -32,17 +33,17 @@ class TitleListFragment : Fragment() , TitleAdapter.ItemClickListener{
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_listing, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         viewModal= initialiseViewModal() as SearchViewModal
         setAdapter()
         bindData()
         observechange()
         initRecyclerView()
+        return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        }
 
     private fun observechange() {
         viewModal.matchedarticle.observe(viewLifecycleOwner, {
@@ -54,6 +55,7 @@ class TitleListFragment : Fragment() , TitleAdapter.ItemClickListener{
     private fun setAdapter() {
         article = viewModal.matchedarticle.value!!
         Log.d(" set adapter ",article.toString())
+        println(context==null)
         personAdapter = context?.let { TitleAdapter(it, this) }!!
     }
 
@@ -74,9 +76,9 @@ class TitleListFragment : Fragment() , TitleAdapter.ItemClickListener{
     {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = personAdapter
-        Log.d("recycler view initiated", " hello ")
-        binding.recyclerView.setItemViewCacheSize(4)
-        personAdapter.submitList(viewModal.matchedarticle.value)
+        Log.d("recycler view initiated", article.toString())
+//        binding.recyclerView.setItemViewCacheSize(4)
+        personAdapter.submitList(ArticleList.getArticles())
     }
 
     override fun onItemClick(article: Article) {
