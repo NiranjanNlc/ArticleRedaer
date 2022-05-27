@@ -41,10 +41,6 @@ class ArticleListFragment : Fragment(), ArticleAdapter.ItemClickListener {
         Log.i("activityList", "recycler view ")
         return binding.root
     }
-    private fun initaliseRecipeList() {
-
-    }
-
     private fun observeChange()
     {
         sampleViewModal.articlList.observe(viewLifecycleOwner, {
