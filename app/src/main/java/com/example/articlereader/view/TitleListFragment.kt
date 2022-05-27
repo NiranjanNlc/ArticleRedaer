@@ -1,6 +1,7 @@
 package com.example.articlereader.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,33 +32,43 @@ class TitleListFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_listing, container, false)
         viewModal= initialiseViewModal() as SearchViewModal
+        setAdapter()
         bindData()
+        observechange()
         initRecyclerView()
-        viewModal.matchedarticle.observe(viewLifecycleOwner,{
-            binding.recyclerView.adapter = TitleAdapter(it )
-        })
         return binding.root
+    }
+
+    private fun observechange() {
+        viewModal.matchedarticle.observe(viewLifecycleOwner, {
+            binding.recyclerView.adapter = TitleAdapter(it)
+        })
+    }
+
+    private fun setAdapter() {
+        article = viewModal.matchedarticle.value!!
+        Log.d(" set adapter ",article.toString())
+        personAdapter = TitleAdapter(article)
     }
 
     private fun initialiseViewModal(): SearchViewModal? {
         val applicationScope = CoroutineScope(SupervisorJob())
         val database = context?.let { ArticleDataBase.getDatabase(it, applicationScope) }
         val repository = database?.let { ArticleRepo(it.reciepedDao()) }
+        Log.d(" viewmodal ", " initialising ")
         return repository?.let { ViewModalFactory(it).create(SearchViewModal::class.java) }
     }
 
     private fun bindData()
     {
         binding.lifecycleOwner=this
+        Log.d("bindData .. ",article.toString())
     }
     private fun initRecyclerView()
     {
-        article = viewModal.matchedarticle.value!!
-        print(article)
-        personAdapter = TitleAdapter(article)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = personAdapter
-        print(" recycler view initiated")
+        Log.d("recycler view initiated", " hello ")
         binding.recyclerView.setItemViewCacheSize(4)
     }
 
