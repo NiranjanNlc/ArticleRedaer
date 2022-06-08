@@ -8,7 +8,7 @@ import com.example.articlereader.modal.repo.ArticleRepo
 import com.example.articlereader.utility.ArticleList
 import kotlinx.coroutines.Job
 
-class SearchViewModal ( repository: ArticleRepo) : ViewModel() {
+class SearchViewModal ( ) : ViewModel() {
 
     private lateinit var job: Job
     var articlList = ArticleList.getArticles()
@@ -16,6 +16,7 @@ class SearchViewModal ( repository: ArticleRepo) : ViewModel() {
 
     init {
         matchedarticle.value=articlList
+        matchedarticle.postValue(matchedarticle.value)
         println( articlList.toString())
     }
     
@@ -30,5 +31,6 @@ class SearchViewModal ( repository: ArticleRepo) : ViewModel() {
             }
             }
         Log.d(" matched article ", matchedarticle.value.toString())
+        matchedarticle.postValue(matchedarticle.value)
         }
 }

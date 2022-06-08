@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.articlereader.R
 import com.example.articlereader.databinding.FragmentListingBinding
@@ -32,11 +33,11 @@ class TitleListFragment : Fragment() , TitleAdapter.ItemClickListener{
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_listing, container, false)
-        viewModal= initialiseViewModal() as SearchViewModal
+        viewModal= activity?.let { ViewModelProvider(it).get(SearchViewModal::class.java) }!!
         setAdapter()
         bindData()
-        observechange()
         initRecyclerView()
+        observechange()
         return binding.root
     }
 
@@ -45,11 +46,12 @@ class TitleListFragment : Fragment() , TitleAdapter.ItemClickListener{
         observechange()
         }
 
-    private fun observechange() {
-        viewModal.matchedarticle.observe(viewLifecycleOwner, {
-            Log.d(" observed ", it.toString())
-            personAdapter.submitList(it)
-        })
+    fun observechange() {
+        viewModal.matchedarticle.observe(viewLifecycleOwner) {
+            val modified:MutableList<Article> = it as MutableList
+            Log.d(" observed ", modified.toString())
+            personAdapter.submitList(modified)
+        }
     }
 
     private fun setAdapter() {
@@ -78,7 +80,7 @@ class TitleListFragment : Fragment() , TitleAdapter.ItemClickListener{
         binding.recyclerView.adapter = personAdapter
         Log.d("recycler view initiated", article.toString())
 //        binding.recyclerView.setItemViewCacheSize(4)
-        personAdapter.submitList(ArticleList.getArticles())
+//        personAdapter.submitList(ArticleList.getArticles())
     }
 
     override fun onItemClick(article: Article) {

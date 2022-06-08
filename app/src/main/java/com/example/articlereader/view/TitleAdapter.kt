@@ -19,12 +19,12 @@ class TitleAdapter constructor(val context : Context, val itemClickListener: Ite
         val ARTICLE_COMPARATOR = object : DiffUtil.ItemCallback<Article>() {
             override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
                 println(" item same ")
-                return oldItem == newItem
+                return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
                 print(" Content same ")
-                return oldItem.title.equals(newItem.title)
+                return oldItem == newItem
             }
         }
 

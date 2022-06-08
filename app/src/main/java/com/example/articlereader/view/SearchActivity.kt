@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.articlereader.R
@@ -27,7 +28,7 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_search)
         Log.i("searchactivityList", "binding ")
-        sampleViewModal = initialiseViewModal()
+        sampleViewModal = ViewModelProvider(this).get(SearchViewModal::class.java)
         binding.inputSearch.addTextChangedListener {
             sampleViewModal.search(it.toString())
         }
@@ -46,6 +47,7 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun initialiseViewModal(): SearchViewModal {
+
         val applicationScope = CoroutineScope(SupervisorJob())
         val database = ArticleDataBase.getDatabase(this, applicationScope)
         val repository = ArticleRepo(database.reciepedDao())
