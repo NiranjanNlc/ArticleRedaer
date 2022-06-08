@@ -1,5 +1,6 @@
 package com.example.articlereader.viewModal
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.articlereader.modal.data.Article
@@ -28,6 +29,6 @@ class SearchViewModal ( repository: ArticleRepo) : ViewModel() {
                 it.title.contains(text,true)
             }
             }
-        println(matchedarticle.value)
+        Log.d(" matched article ", matchedarticle.value.toString())
         }
 }

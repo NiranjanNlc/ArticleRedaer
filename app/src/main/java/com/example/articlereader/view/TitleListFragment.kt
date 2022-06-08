@@ -47,7 +47,7 @@ class TitleListFragment : Fragment() , TitleAdapter.ItemClickListener{
 
     private fun observechange() {
         viewModal.matchedarticle.observe(viewLifecycleOwner, {
-            Log.d(" observed ", " why this why ")
+            Log.d(" observed ", it.toString())
             personAdapter.submitList(it)
         })
     }

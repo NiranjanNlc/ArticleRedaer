@@ -12,7 +12,7 @@ import com.example.articlereader.utility.ArticleList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [Article::class], version = 1)
+@Database(entities = [Article::class], version = 2)
 abstract class ArticleDataBase : RoomDatabase()
 {
         abstract fun reciepedDao(): ArticleDao
@@ -50,6 +50,7 @@ abstract class ArticleDataBase : RoomDatabase()
                        ArticleDataBase::class.java,
                         "article_database"
                     ).addCallback(ReciepeDatabaseCallback(scope))
+                        .fallbackToDestructiveMigration()
                         .build()
                     INSTANCE = instance
                     // return instance
