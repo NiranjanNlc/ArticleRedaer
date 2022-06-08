@@ -25,7 +25,7 @@ class ArticleAdapter constructor(val context : Context, val itemClickListener: I
 
             override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
                 print(" Content same ")
-                return oldItem.id!!.equals(newItem.id)
+                return oldItem.title.equals(newItem.title)
             }
         }
 

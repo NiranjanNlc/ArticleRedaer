@@ -26,7 +26,7 @@ class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_search)
-        Log.i("activityList", "binding ")
+        Log.i("searchactivityList", "binding ")
         sampleViewModal = initialiseViewModal()
         binding.inputSearch.addTextChangedListener {
             sampleViewModal.search(it.toString())

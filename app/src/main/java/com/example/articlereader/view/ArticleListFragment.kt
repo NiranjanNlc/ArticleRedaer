@@ -29,8 +29,9 @@ class ArticleListFragment : Fragment(), ArticleAdapter.ItemClickListener {
     ): View {
         binding =DataBindingUtil.inflate(inflater, R.layout.fragment_article_list, container, false)
         sampleViewModal = initialiseViewModal()
-        adapter = context?.let { ArticleAdapter(it, this) }!!
-        Log.i("activityList", "adapter view data ")
+        adapter = context?.let {
+            Log.i("activityList", "adapter view data  $it")
+            ArticleAdapter(it, this) }!!
         bindData()
         Log.i("activityList", "binddata")
         observeChange()
@@ -59,7 +60,7 @@ class ArticleListFragment : Fragment(), ArticleAdapter.ItemClickListener {
     }
     private fun initRecyclerView()
     {
-        print(" recycler view initiated")
+        println(" recycler view initiated"+sampleViewModal.articlList.value)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         // binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.adapter=   adapter
@@ -74,5 +75,9 @@ class ArticleListFragment : Fragment(), ArticleAdapter.ItemClickListener {
         i.putExtra("url",article.url)
         startActivity(i,null)
         //  finish()
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.unbind()
     }
 }
