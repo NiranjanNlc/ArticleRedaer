@@ -15,7 +15,6 @@ import com.example.articlereader.databinding.FragmentListingBinding
 import com.example.articlereader.modal.data.Article
 import com.example.articlereader.modal.database.ArticleDataBase
 import com.example.articlereader.modal.repo.ArticleRepo
-import com.example.articlereader.utility.ArticleList
 import com.example.articlereader.viewModal.SearchViewModal
 import com.example.articlereader.viewModal.ViewModalFactory
 import kotlinx.coroutines.CoroutineScope

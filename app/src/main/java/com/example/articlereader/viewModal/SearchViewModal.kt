@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.articlereader.modal.data.Article
-import com.example.articlereader.modal.repo.ArticleRepo
 import com.example.articlereader.utility.ArticleList
 import kotlinx.coroutines.Job
 
